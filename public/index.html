@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Play chess variants such as four-player chess, crazyhouse 960, and S-Chess (aka Seirawan Chess)" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" />
+    <link rel="stylesheet" href="style/chessboard-0.3.0.css">
+    <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css">
+    <link rel="stylesheet" href="/style/jquery.typeahead.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel='shortcut icon' type='image/png' href='/favicon.png' />
+    <title>Hello Chess - Four-player Chess, Crazyhouse 960, and S-Chess</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="site-description">
+            <img class="img-responsive home-logo" src="/img/tan_logo.png" alt="" />
+            <p>
+                Welcome to Hello Chess, a server for playing
+                live chess and chess variants, including four-player chess, crazyhouse 960,
+                and S-Chess (also known as Seirawan Chess).
+            </p>
+            <!-- Begin loading animation -->
+            <style type='text/css'>
+                @-webkit-keyframes uil-default-anim {
+                    0% {
+                        opacity: 1
+                    }
+                    100% {
+                        opacity: 0
+                    }
+                }
+                
+                @keyframes uil-default-anim {
+                    0% {
+                        opacity: 1
+                    }
+                    100% {
+                        opacity: 0
+                    }
+                }
+                
+                .uil-default-css > div:nth-of-type(1) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -1s;
+                    animation-delay: -1s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(2) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.9285714285714286s;
+                    animation-delay: -0.9285714285714286s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(3) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.8571428571428571s;
+                    animation-delay: -0.8571428571428571s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(4) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.7857142857142857s;
+                    animation-delay: -0.7857142857142857s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(5) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.7142857142857143s;
+                    animation-delay: -0.7142857142857143s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(6) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.6428571428571429s;
+                    animation-delay: -0.6428571428571429s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(7) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.5714285714285714s;
+                    animation-delay: -0.5714285714285714s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(8) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.5s;
+                    animation-delay: -0.5s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(9) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.42857142857142855s;
+                    animation-delay: -0.42857142857142855s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(10) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.35714285714285715s;
+                    animation-delay: -0.35714285714285715s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(11) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.2857142857142857s;
+                    animation-delay: -0.2857142857142857s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(12) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.21428571428571427s;
+                    animation-delay: -0.21428571428571427s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(13) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.14285714285714285s;
+                    animation-delay: -0.14285714285714285s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                .uil-default-css > div:nth-of-type(14) {
+                    -webkit-animation: uil-default-anim 1s linear infinite;
+                    animation: uil-default-anim 1s linear infinite;
+                    -webkit-animation-delay: -0.07142857142857142s;
+                    animation-delay: -0.07142857142857142s;
+                }
+                
+                .uil-default-css {
+                    position: relative;
+                    background: none;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                </style>
+            <div class='uil-default-css' style='transform:scale(0.35);margin:auto;'>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(25deg) translate(0,-60px);transform:rotate(25deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(51deg) translate(0,-60px);transform:rotate(51deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(77deg) translate(0,-60px);transform:rotate(77deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(102deg) translate(0,-60px);transform:rotate(102deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(128deg) translate(0,-60px);transform:rotate(128deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(154deg) translate(0,-60px);transform:rotate(154deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(180deg) translate(0,-60px);transform:rotate(180deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(205deg) translate(0,-60px);transform:rotate(205deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(231deg) translate(0,-60px);transform:rotate(231deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(257deg) translate(0,-60px);transform:rotate(257deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(282deg) translate(0,-60px);transform:rotate(282deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(308deg) translate(0,-60px);transform:rotate(308deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            	<div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(334deg) translate(0,-60px);transform:rotate(334deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+            </div>
+            <!-- End loading animation -->
+        </div>
+    </div>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>-->
+    <script type="text/javascript" src="js/chessboard-0.3.0.js"></script>
+    <script type="text/javascript" src="js/fourchessboard.js"></script>
+    <script src="https://simplewebrtc.com/latest-v2.js"></script>
+    <script src="/js/jquery.typeahead.min.js"></script>
+    <script src="./bundle.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-71243957-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
